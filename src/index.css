@@ -12,6 +12,14 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body,
+#root {
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
 #que-hacemos,
 #conocenos,
 #contacto {

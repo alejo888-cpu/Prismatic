@@ -43,7 +43,7 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative h-[100svh] min-h-[620px] overflow-hidden text-white"
+      className="relative w-full max-w-none h-[100svh] min-h-[620px] overflow-hidden text-white"
     >
       <AnimatePresence mode="sync">
         <motion.div
