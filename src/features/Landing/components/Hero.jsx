@@ -43,7 +43,7 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative h-screen min-h-[600px] overflow-hidden text-white"
+      className="relative h-[100svh] min-h-[620px] overflow-hidden text-white"
     >
       <AnimatePresence mode="sync">
         <motion.div
@@ -80,7 +80,7 @@ export default function Hero() {
       </button>
 
       {/* Content */}
-      <div className="absolute left-0 right-0 bottom-28 sm:bottom-32 z-10 max-w-7xl mx-auto px-6 w-full">
+      <div className="absolute left-0 right-0 bottom-24 sm:bottom-32 z-10 max-w-7xl mx-auto px-5 sm:px-6 w-full">
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
@@ -93,7 +93,7 @@ export default function Hero() {
               {slides[current].eyebrow}
             </span>
             <h1
-              className="text-3xl sm:text-5xl leading-tight max-w-xl mb-4"
+              className="text-[2.15rem] sm:text-5xl leading-tight max-w-xl mb-4"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               {slides[current].title}
@@ -104,17 +104,17 @@ export default function Hero() {
           </motion.div>
         </AnimatePresence>
 
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-col min-[420px]:flex-row gap-3 sm:gap-4">
           <a
             href="#contacto"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold"
+            className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full text-sm font-semibold min-[420px]:px-6"
             style={{ background: "var(--green-light)", color: "var(--dark)" }}
           >
             Solicitar servicio
           </a>
           <Link
             to="/galeria"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold border-2 border-white/80"
+            className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full text-sm font-semibold border-2 border-white/80 min-[420px]:px-6"
           >
             Ver proyectos
           </Link>
@@ -122,7 +122,7 @@ export default function Hero() {
       </div>
 
       {/* Dots */}
-      <div className="absolute left-7 bottom-11 z-10 flex gap-2.5">
+      <div className="absolute left-5 sm:left-7 bottom-8 sm:bottom-11 z-10 flex gap-2.5">
         {slides.map((_, i) => (
           <button
             key={i}

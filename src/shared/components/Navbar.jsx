@@ -50,7 +50,7 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
         {/* Logo */}
         <MotionLink
           to="/"
@@ -59,7 +59,7 @@ export default function Navbar() {
           transition={{ type: "spring", stiffness: 250, damping: 20 }}
         >
           <div
-            className="w-14 h-14 rounded-full overflow-hidden flex-shrink-0 border-2 border-white/80 shadow-lg"
+            className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden flex-shrink-0 border-2 border-white/80 shadow-lg"
             style={{
               background: "linear-gradient(135deg, #135b04 0%, #36a20f 100%)",
             }}
