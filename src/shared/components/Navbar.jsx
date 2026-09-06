@@ -20,7 +20,7 @@ export default function Navbar() {
   const isHome = location.pathname === "/";
   const [scrolled, setScrolled] = useState(() => window.scrollY > 40);
   const [open, setOpen] = useState(false);
-  const showSolidBackground = !isHome || scrolled;
+  const showSolidBackground = !isHome || scrolled || open;
 
   useEffect(() => {
     const onScroll = () => {
@@ -122,9 +122,12 @@ export default function Navbar() {
 
         {/* Mobile burger */}
         <motion.button
+          type="button"
           className="md:hidden p-2 rounded-lg transition-colors"
           onClick={() => setOpen(!open)}
           aria-label="Menú"
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -150,7 +153,8 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden bg-white border-t border-gray-100 overflow-hidden"
+            id="mobile-navigation"
+            className="md:hidden bg-white border-t border-gray-100 shadow-sm overflow-hidden"
           >
             <nav className="px-6 py-4 flex flex-col gap-4">
               {links.map((l) => (
@@ -159,7 +163,7 @@ export default function Navbar() {
                   to={l.to}
                   onClick={() => setOpen(false)}
                   className="text-sm font-medium py-1"
-                  style={{ color: showSolidBackground ? "var(--dark)" : "#ffffff" }}
+                  style={{ color: "var(--dark)" }}
                 >
                   {l.label}
                 </Link>
