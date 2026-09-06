@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+:root {
+  --dark: #1c2b1f;
+  --green-mid: #33543c;
+  --green-accent: #4f7355;
+  --green-light: #7f9b80;
+  --cream: #f5f2ea;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+#que-hacemos,
+#conocenos,
+#contacto {
+  scroll-margin-top: 88px;
 }
