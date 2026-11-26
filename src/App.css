@@ -22,14 +22,17 @@
 #garden-nav .active, #garden-nav a:hover, .garden-footer a:hover { text-decoration: underline; text-underline-offset: .3em; }
 .garden-nav-contact { padding: .6rem 1.1rem; border: 1px solid #637561; border-radius: 2rem; }
 #garden-menu-toggle { display: none; }
-.garden-hero { position: relative; isolation: isolate; display: grid; align-items: end; margin-top: 76px; min-height: clamp(530px, 73svh, 760px); color: white; background: #203d2c; }
-.garden-hero > img, .garden-hero::after { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -2; object-fit: cover; object-position: 57% 56%; }
-.garden-hero::after { content: ""; z-index: -1; background: linear-gradient(90deg, #0b2118eb, #10281dc7 30%, #11281919 82%), linear-gradient(0deg,#0b201650,transparent 65%); }
-.hero-copy { padding-block: 5rem; }
+.garden-hero { margin-top: 76px; background: #f5f3e7; }
+.garden-cover { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 5%; padding-block: clamp(3rem, 6vw, 6rem); }
+.cover-photo { position: relative; display: block; padding: 0 0 6% 10%; }
+.cover-leaves { width: 100%; aspect-ratio: 1 / 1.06; object-fit: cover; border-radius: 48% 48% 2px 2px; }
+.cover-path { position: absolute; width: 36%; aspect-ratio: 1; object-fit: cover; bottom: 0; left: 0; border: 7px solid #f5f3e7; border-radius: 50%; }
+.hero-copy .garden-button { background: #214731; color: white; }
+.hero-copy .garden-button:hover { background: #335d3c; }
 .garden-label { font-size: .74rem; font-weight: 650; letter-spacing: .15em; text-transform: uppercase; margin: 0 0 1.2rem; }
 .hero-copy h1, .garden-section h2, .garden-story h2, .garden-footer h2 { font-family: "Playfair Display", Georgia, serif; font-weight: 400; line-height: 1.02; letter-spacing: -.05em; text-wrap: balance; }
 .hero-copy h1 { font-size: clamp(3.5rem, 7.5vw, 7.4rem); }
-.hero-copy h1 em { color: #dce6b7; font-weight: inherit; }
+.hero-copy h1 em { color: #476743; font-weight: inherit; }
 .hero-copy > p:not(.garden-label) { max-width: 43ch; margin-block: 1.4rem 1.8rem; line-height: 1.6; }
 .hero-actions { flex-wrap: wrap; gap: 1.4rem; }
 .garden-button { display: inline-flex; align-items: center; justify-content: center; gap: .7rem; padding: .9rem 1.35rem; border-radius: 2rem; color: #203a27; background: #e0eabe; font-weight: 600; }
@@ -40,9 +43,15 @@
 .garden-heading, .garden-colophon { justify-content: space-between; gap: 1.2rem; }
 .garden-heading { align-items: end; margin-bottom: 2rem; }
 .garden-section h2, .garden-footer h2, .garden-story h2 { font-size: clamp(2.6rem, 5vw, 5rem); }
-.garden-scenes { display: grid; grid-template-columns: 1.25fr 1fr .85fr; gap: clamp(.9rem, 2vw, 2rem); }
-.garden-scenes img { width: 100%; height: clamp(200px, 26vw, 380px); object-fit: cover; }
-.garden-scenes figcaption { margin-top: .65rem; font: 1.25rem Georgia, serif; }
+.garden-portfolio { background: #18392c; scroll-margin-top: 76px; }
+.portfolio-layout { display: grid; grid-template-columns: 2fr 3fr; gap: 8%; align-items: center; color: #f4f2e6; }
+.portfolio-layout h2 em { color: #d0dda9; }
+.scene-picker { margin: 1.8rem 0 1.3rem; }
+.scene-picker button { display: flex; width: 100%; justify-content: space-between; align-items: center; padding: .85rem .4rem; border-top: 1px solid #718679; text-align: left; cursor: pointer; }
+.scene-picker button[aria-pressed="true"] { background: #dbe5bd; color: #193929; padding-inline: .8rem; }
+.portfolio-layout figure { margin: 0; }
+.portfolio-layout figure img { width: 100%; aspect-ratio: 1.55; object-fit: cover; }
+.portfolio-layout figcaption { margin-top: .5rem; font-size: .85rem; }
 .garden-services { background: #eff1e6; }
 .garden-columns { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 8vw, 8rem); }
 .garden-services .garden-link, .garden-footer .garden-button { margin-top: 1.6rem; }
@@ -68,15 +77,12 @@
   #garden-nav.is-open { display: grid; gap: 0; }
   #garden-nav a { padding: .65rem 0; }
   .garden-nav-contact { border: 0; }
-  .garden-hero { margin-top: 66px; min-height: 530px; }
-  .garden-hero::after { background: linear-gradient(0deg, #0c2318f2, #102919a6 65%, #10291930); }
-  .hero-copy { padding-block: 3rem; }
-  .garden-heading { align-items: start; flex-direction: column; }
-  .garden-scenes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .garden-scenes figure:first-child { grid-column: 1 / -1; }
-  .garden-scenes img { height: auto; aspect-ratio: 1; }
-  .garden-scenes figure:first-child img { aspect-ratio: 1.85; }
-  .garden-scenes figcaption { font-size: 1.07rem; }
+  .garden-hero { margin-top: 66px; }
+  .garden-cover { grid-template-columns: 1fr; gap: 1.75rem; padding-block: 2.5rem; }
+  .cover-photo { width: min(100%, 460px); margin-inline: auto; padding-bottom: 4%; }
+  .cover-leaves { aspect-ratio: 1.6; border-radius: 48% 48% 0 0 / 70% 70% 0 0; }
+  .cover-path { width: 26%; border-width: 4px; }
+  .portfolio-layout { grid-template-columns: 1fr; gap: 1.5rem; }
   .garden-columns, .garden-story { grid-template-columns: 1fr; }
   .garden-story > img { height: 240px; }
   .garden-story > div { padding: 2.5rem 5.5%; }
