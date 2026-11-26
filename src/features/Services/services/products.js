@@ -1,16 +1,3 @@
-import {
-  GiGardeningShears,
-  GiWateringCan,
-  GiTreeSwing,
-  GiGrass,
-  GiWoodenFence,
-} from "react-icons/gi";
-
-import { MdPool, MdPestControl, MdLandscape } from "react-icons/md";
-
-import { TbSpray } from "react-icons/tb";
-
-// Services Images
 import Services1 from "../../../assets/image/Services1.png";
 import Services2 from "../../../assets/image/Services2.png";
 import Services3 from "../../../assets/image/Services3.png";
@@ -22,34 +9,15 @@ import Services8 from "../../../assets/image/Services8.png";
 import Services9 from "../../../assets/image/Services9.png";
 import Services10 from "../../../assets/image/Services10.png";
 
-const serviceImages = [
-  Services1,
-  Services2,
-  Services3,
-  Services4,
-  Services5,
-  Services6,
-  Services7,
-  Services8,
-  Services9,
-  Services10,
+export const services = [
+  { id: 8, label: "Paisajismo", category: "Diseño e instalación", img: Services8 },
+  { id: 3, label: "Instalación de riegos", category: "Diseño e instalación", img: Services3 },
+  { id: 9, label: "Cerramientos y linderos", category: "Diseño e instalación", img: Services9 },
+  { id: 1, label: "Mantenimiento de prados", category: "Cuidado del jardín", img: Services1 },
+  { id: 6, label: "Cuidado de zonas verdes", category: "Cuidado del jardín", img: Services6 },
+  { id: 7, label: "Poda y tala de árboles", category: "Cuidado del jardín", img: Services7 },
+  { id: 5, label: "Abonos y fumigaciones", category: "Cuidado del jardín", img: Services5 },
+  { id: 10, label: "Jardinero en casa", category: "Cuidado del jardín", img: Services10 },
+  { id: 2, label: "Hidrolavado residencial", category: "Mantenimiento exterior", img: Services2 },
+  { id: 4, label: "Mantenimiento de piscinas", category: "Mantenimiento exterior", img: Services4 },
 ];
-
-const serviceData = [
-  { label: "Mantenimiento\nde Prados", icon: GiGrass },
-  { label: "Hidrolavado\nResidencial", icon: TbSpray },
-  { label: "Instalación\nde Riegos", icon: GiWateringCan },
-  { label: "Mantenimiento\nde Piscinas", icon: MdPool },
-  { label: "Abonos y\nFumigaciones", icon: MdPestControl },
-  { label: "Cuidado de\nZonas Verdes", icon: GiTreeSwing },
-  { label: "Poda y Tala\nde Árboles", icon: GiGardeningShears },
-  { label: "Paisajismo", icon: MdLandscape },
-  { label: "Cerramientos\ny Linderos", icon: GiWoodenFence },
-  { label: "Jardinero\nen Casa", icon: GiGardeningShears },
-];
-
-export const services = serviceData.map((service, index) => ({
-  id: index + 1,
-  ...service,
-  img: serviceImages[index],
-}));
