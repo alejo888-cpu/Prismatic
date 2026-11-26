@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import exterior from "../../../assets/image/Galeria2.jpeg";
 import detalle from "../../../assets/image/Galeria3.jpeg";
@@ -10,16 +11,29 @@ const scenes = [
 ];
 
 export default function ExploreCards() {
+  const [selected, setSelected] = useState(0);
+  const scene = scenes[selected];
+
   return (
-    <section className="garden-wrap garden-section">
-      <div className="garden-heading">
-        <div><p className="garden-label">Galería</p><h2>El jardín en detalle</h2></div>
-        <Link className="garden-link" to="/galeria">Ver toda la galería →</Link>
-      </div>
-      <div className="garden-scenes">
-        {scenes.map(({ image, title, alt }) => (
-          <figure key={title}><img src={image} alt={alt} loading="lazy" /><figcaption>{title}</figcaption></figure>
-        ))}
+    <section id="ambientes" className="garden-portfolio" aria-labelledby="portfolio-title">
+      <div className="garden-wrap garden-section portfolio-layout">
+        <div>
+          <p className="garden-label">Galería de Prismatic</p>
+          <h2 id="portfolio-title">Elige un<br /><em>ambiente.</em></h2>
+          <div className="scene-picker" role="group" aria-label="Ambiente para explorar">
+            {scenes.map(({ title }, index) => (
+              <button type="button" key={title} aria-pressed={selected === index}
+                aria-controls="scene-photo" onClick={() => setSelected(index)}>
+                {title}<span aria-hidden="true">{selected === index ? "↗" : "→"}</span>
+              </button>
+            ))}
+          </div>
+          <Link className="garden-link" to="/galeria">Ver galería completa →</Link>
+        </div>
+        <figure id="scene-photo" aria-live="polite">
+          <img src={scene.image} alt={scene.alt} loading="lazy" />
+          <figcaption>{scene.title}</figcaption>
+        </figure>
       </div>
     </section>
   );
