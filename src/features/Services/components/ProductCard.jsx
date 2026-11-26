@@ -1,74 +1,37 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
 import { services } from "../services/products";
+import leaves from "../../../assets/image/Hero3.webp";
+
+const categories = ["Todos", ...new Set(services.map(service => service.category))];
 
 export default function ProductCard() {
-  return (
-    <motion.section
-      id="servicios"
-      className="section-padding"
-      style={{ background: "#f9fafb" }}
-      initial={{ opacity: 0, y: 36 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.7, ease: "easeOut" }}
-    >
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 36 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-center mb-14"
-        >
-          <h2
-            className="text-4xl md:text-5xl mb-4"
-            style={{ color: "var(--dark)" }}
-          >
-            Nuestros{" "}
-            <span style={{ color: "var(--green-accent)" }}>Servicios</span>
-          </h2>
-          <p className="text-gray-500 max-w-xl mx-auto">
-            Ofrecemos una amplia gama de servicios profesionales para
-            transformar y mantener tus espacios verdes.
-          </p>
-        </motion.div>
+  const [category, setCategory] = useState("Todos");
+  const visible = category === "Todos" ? services : services.filter(service => service.category === category);
 
-        {/* Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-          {services.map((s, i) => {
-            const Icon = s.icon;
-            return (
-              <motion.div
-                key={s.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
-                whileHover={{ y: -4, scale: 1.02 }}
-                className="relative overflow-hidden rounded-2xl cursor-pointer group"
-                style={{ aspectRatio: "3/4" }}
-              >
-                {/* Background image */}
-                <img
-                  src={s.img}
-                  alt={s.label}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                {/* Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                  <Icon className="mb-2 opacity-90" size={20} />
-                  <p className="text-xs font-semibold leading-snug whitespace-pre-line">
-                    {s.label}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
+  return (
+    <section className="botanic-page" id="servicios" aria-labelledby="services-title">
+      <div className="garden-wrap">
+        <header className="catalog-intro">
+          <div>
+            <p className="garden-label">Servicios de paisajismo</p>
+            <h1 id="services-title">Del diseño<br /><em>al cuidado.</em></h1>
+            <p>Encuentra el servicio que necesita tu espacio, desde instalar el riego hasta cuidar un jardín que ya está creciendo.</p>
+          </div>
+          <img src={leaves} alt="Detalle de hojas de distintos tamaños y texturas" />
+        </header>
+        <div className="catalog-filters" role="group" aria-label="Filtrar servicios por categoría">
+          {categories.map(name => <button key={name} aria-pressed={category === name} onClick={() => setCategory(name)}>{name}</button>)}
         </div>
+        <ul className="catalog-list">
+          {visible.map(service => (
+            <li key={service.id}>
+              <img src={service.img} alt="" loading="lazy" />
+              <div><p>{service.category}</p><h2>{service.label}</h2></div>
+              <a className="catalog-inquiry" href={'https://wa.me/573007282538?text=' + encodeURIComponent('Hola, Prismatic. Me interesa el servicio de ' + service.label + '.')} aria-label={'Consultar por WhatsApp sobre ' + service.label}>Consultar ↗</a>
+            </li>
+          ))}
+        </ul>
       </div>
-    </motion.section>
+    </section>
   );
 }

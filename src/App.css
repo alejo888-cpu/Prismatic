@@ -88,3 +88,40 @@
   .garden-story > div { padding: 2.5rem 5.5%; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+.botanic-page { margin-top: 76px; padding-block: clamp(2.5rem, 5vw, 5rem); background: #f5f3e7; color: #1c382b; font-family: "DM Sans", system-ui, sans-serif; }
+.botanic-page h1 { font: 400 clamp(3.5rem, 6.5vw, 6.5rem)/.99 "Playfair Display", Georgia, serif; letter-spacing: -.055em; }
+.botanic-page h1 em { color: #476743; }
+.botanic-page h1 + p { max-width: 42ch; margin-top: 1.35rem; line-height: 1.65; }
+.catalog-intro, .album-spread { display: grid; align-items: center; grid-template-columns: 1fr 1fr; gap: 7%; }
+.catalog-intro > img { width: 100%; height: clamp(190px, 23vw, 340px); object-fit: cover; border-radius: 50% 50% 0 0 / 85% 85% 0 0; }
+.catalog-filters { display: flex; flex-wrap: wrap; gap: .5rem; margin-block: 2.6rem 1rem; }
+.catalog-filters button, .album-controls button { border: 1px solid currentColor; border-radius: 2rem; padding: .6rem 1rem; cursor: pointer; }
+.catalog-filters button[aria-pressed="true"] { background: #214731; color: white; }
+.catalog-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); column-gap: 4%; }
+.catalog-list li { display: grid; grid-template-columns: clamp(54px,6vw,80px) 1fr auto; align-items: center; gap: .9rem; padding-block: 1rem; border-top: 1px solid #a4b29d; }
+.catalog-list img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 50%; }
+.catalog-list h2 { font: 400 clamp(1.2rem,2vw,1.65rem)/1.12 Georgia,serif; }
+.catalog-list p { color: #536853; font-size: .75rem; margin-bottom: .3rem; }
+.catalog-inquiry { font-size: .85rem; padding-block: .6rem; text-decoration: underline; text-underline-offset: .25em; }
+.botanic-album { background: #18392c; color: #f4f2e6; }
+.botanic-album h1 em { color: #d0dda9; }
+.album-spread { grid-template-columns: 2fr 3fr; }
+.album-controls { display: flex; align-items: center; gap: .9rem; margin-top: 1.5rem; }
+.album-controls button { width: 44px; height: 44px; padding: 0; }
+.album-controls button:hover { color: #18392c; background: #d0dda9; }
+.album-spread figure img { width: 100%; height: clamp(295px,32vw,470px); object-fit: contain; background: #112c22; }
+.album-spread figcaption { font: italic 1.15rem Georgia,serif; margin-top: .65rem; }
+.album-index { display: grid; grid-template-columns: repeat(7,minmax(0,1fr)); gap: .65rem; border-top: 1px solid #748d78; margin-top: 2rem; padding-top: 1rem; }
+.album-index button { cursor: pointer; padding: 3px; border: 2px solid transparent; }
+.album-index button[aria-pressed="true"] { border-color: #d0dda9; }
+.album-index img { width: 100%; aspect-ratio: 1.65; object-fit: cover; }
+@media (max-width: 800px) { .catalog-list { grid-template-columns: 1fr; } }
+@media (max-width: 700px) {
+  .botanic-page { margin-top: 66px; }
+  .catalog-intro, .album-spread { grid-template-columns: 1fr; gap: 1.5rem; }
+  .catalog-intro > img { height: 145px; }
+  .catalog-filters { margin-top: 1.5rem; }
+  .catalog-filters button { font-size: .85rem; }
+  .album-index { grid-template-columns: repeat(4,minmax(0,1fr)); }
+}
