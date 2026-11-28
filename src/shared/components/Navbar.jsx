@@ -26,6 +26,7 @@ export default function Navbar() {
         <NavLink end to="/">Inicio</NavLink><NavLink to="/servicios">Servicios</NavLink>
         <NavLink to="/galeria">Galería</NavLink><Link to="/#conocenos">Conócenos</Link>
         <Link className="garden-nav-contact" to={pathname + "#contacto"}>Contacto ↗</Link>
+        <NavLink to="/acceso">Mi cuenta</NavLink>
       </nav>
     </div></header>
   );

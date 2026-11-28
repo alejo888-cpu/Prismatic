@@ -1,0 +1,26 @@
+.account-page { margin-top: 76px; background: #f5f3e7; color: #1c382b; padding-block: clamp(2rem,5vw,5rem); }
+.account-layout { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem,7vw,7rem); align-items: center; }
+.account-photo img { width: 100%; height: clamp(410px,46vw,680px); object-fit: cover; border-radius: 48% 48% 2px 2px; }
+.account-content { max-width: 470px; width: 100%; }
+.account-content h1 { font: 400 clamp(3rem,5.5vw,5.3rem)/1.05 Georgia,serif; letter-spacing: -.055em; }
+.account-content h1 em { color: #476743; }
+.account-modes { display: flex; gap: 4px; margin: 1.5rem 0 .8rem; padding: 4px; border-radius: 2rem; border: 1px solid #9fab97; }
+.account-modes button { flex: 1; padding: .6rem; border-radius: 2rem; cursor: pointer; }
+.account-modes button[aria-pressed="true"], .account-submit { background: #214731; color: white; }
+.account-note, .account-content small { font-size: .84rem; color: #4c604d; }
+.account-content form { margin: 1.3rem 0 .8rem; display: grid; gap: .8rem; }
+.account-content label { display: block; font-size: .9rem; font-weight: 600; }
+.account-content input { display: block; margin-top: .35rem; padding: .7rem .85rem; width: 100%; border: 1px solid #83957e; border-radius: .6rem; background: #fffef8; font-size: 1rem; font-weight: 400; }
+.account-content input:focus-visible { outline: 2px solid #436b43; outline-offset: 2px; }
+.account-password { position: relative; }
+.account-password input { padding-right: 3rem; }
+.account-password button { position: absolute; inset: 0 0 0 auto; width: 44px; display: grid; place-items: center; cursor: pointer; }
+.account-pair { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .8rem; }
+.account-submit { border-radius: 2rem; padding: .85rem; cursor: pointer; }
+.account-status:not(:empty) { background: #e1ead6; padding: .8rem; margin-bottom: .7rem; }
+@media (max-width: 700px) {
+  .account-page { margin-top: 66px; }
+  .account-layout { display: block; }
+  .account-photo { display: none; }
+  .account-content { margin-inline: auto; }
+}
